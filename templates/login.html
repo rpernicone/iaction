@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>God in a box</title>
+<!-- Stylesheets -->
+<link href={{ url_for('static',filename='assets/css/bootstrap.css') }} rel="stylesheet">
+<link href={{ url_for('static',filename='assets/css/style.css') }} rel="stylesheet">
+<link href={{ url_for('static',filename='assets/css/responsive.css') }} rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+<!-- Color Switcher Mockup -->
+<link href={{ url_for('static',filename='assets/css/color-switcher-design.css') }} rel="stylesheet">
+<!-- Color Themes -->
+<link id="theme-color-file" href={{ url_for('static',filename='assets/color-themes/default-theme.css') }} rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" href={{ url_for('static',filename='assets/images/favicon.png') }} type="image/x-icon">
+<link rel="icon" href={{ url_for('static',filename='assets/images/favicon.png') }} type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+ 	
+ 	<!-- Main Header-->
+  <header class="main-header header-style-one">
+    	
+		<!--Header-Upper-->
+        <div class="header-upper">
+        	<div class="auto-container">
+            	<div class="inner-container clearfix">
+                	
+                <!--	<div class="pull-left logo-box">
+                    	<div class="logo"><a href="/"><img src="https://via.placeholder.com/130x60" alt="" title=""></a></div>
+                    </div>-->
+                    
+					<div class="nav-outer clearfix">
+						<!--Mobile Navigation Toggler-->
+						<div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+						<!-- Main Menu -->
+						<nav class="main-menu navbar-expand-md">
+							<div class="navbar-header">
+								<!-- Toggle Button -->    	
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							
+							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+								<ul class="navigation clearfix">
+									<li class="current dropdown"><a href="/">Home</a>
+									</li>
+								<!--	<li><a href="#about">About</a></li>
+									<li><a href="#services">Services</a></li>
+									<li><a href="#portfolio">Portfolio</a></li>
+									<li><a href="#contact">Contact us</a></li>
+									<li><a href="#contact">Register</a></li> -->
+									<li><a href="{{ url_for('login') }}">Login</a></li>
+								</ul>
+							</div>
+						</nav>
+						
+						<!-- Main Menu End-->
+						<div class="outer-box clearfix">
+							
+							<!-- Quote Btn 
+							<div class="btn-box">
+								<a href="tel:+800-019-4900" class="contact-btn theme-btn"><span class="icon flaticon-smartphone"></span> + 800 019 4900</a>
+							</div>
+            -->
+								
+							<!-- Nav Btn -->
+							<div class="menu-toggler nav-toggler hidden-bar-opener"><span class="icon flaticon-menu"></span></div>
+								
+						</div>
+					</div>
+                    
+                </div>
+				
+            </div>
+        </div>
+        <!--End Header Upper-->
+        
+		<!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+               <!-- <div class="logo pull-left">
+                    <a href="/" title=""><img src="https://via.placeholder.com/130x60" alt="" title=""></a>
+                </div> -->
+                <!--Right Col-->
+                <div class="pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <!--Keep This Empty / Menu will come through Javascript-->
+                    </nav>
+					<!-- Main Menu End-->
+					
+					<!-- Main Menu End-->
+					<div class="outer-box clearfix">
+						
+						<!-- Quote Btn 
+						<div class="btn-box">
+							<a href="tel:+800-019-4900" class="contact-btn theme-btn"><span class="icon flaticon-smartphone"></span> + 800 019 4900</a>
+						</div>-->
+							
+						<!-- Nav Btn -->
+						<div class="menu-toggler nav-toggler hidden-bar-opener"><span class="icon flaticon-menu"></span></div>
+							
+					</div>
+					
+                </div>
+            </div>
+        </div><!-- End Sticky Menu -->
+    
+		<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="https://via.placeholder.com/130x60" alt="" title=""></a></div>
+                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+	
+  </header>
+    <!-- End Main Header -->
+	
+	<!-- Hidden Navigation Bar -->
+  <section class="hidden-bar left-align">
+		<div class="color-layer"></div>
+        <div class="hidden-bar-closer">
+            <button><span class="flaticon-multiply"></span></button>
+        </div>
+      <!--  <div class="logo">
+        	<a href="index.html"><img src="https://via.placeholder.com/130x60" alt="" /></a>
+        </div> -->
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+            <!-- .Side-menu -->
+            <div class="side-menu"> 
+            	<ul class="navigation clearfix">
+					<li class="current dropdown"><a href="/">Home</a>
+					</li>
+       <!--   <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact us</a></li> -->
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+				</ul>
+            </div>
+            <!-- /.Side-menu -->
+			
+            <!--Social Links
+            <ul class="social-links clearfix">
+                <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
+                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+                <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                <li><a href="#"><span class="fa fa-pinterest"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+            -->
+        </div>
+     	
+        <!--Copyright Text-->
+        <div class="copyright-text">Copyright &copy; 2022 Mkenyadamu</div>
+  </section>
+	
+<section style="padding-top: 15%;">
+    <div class="d-flex justify-content-center">
+        <form>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <h2>God In A Box</h2>
+             <!-- <input type="email" id="form2Example1" class="form-control" />
+              <label class="form-label" for="form2Example1">Email address</label> -->
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <p>The phone number that you verify after signing<br>in below will be linked to your WhatsApp account,<br>so please use the same number to communicate<br>with our bot.</p>
+             <!-- <input type="password" id="form2Example2" class="form-control" />
+              <label class="form-label" for="form2Example2">Password</label>-->
+            </div>
+          
+            <!-- 2 column grid layout for inline styling -->
+          
+            <!-- Submit button -->
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-block mb-4">Sign In With Google</a>
+          
+            <!-- Register buttons -->
+
+          </form>
+    </div>
+   
+</section>
+ 
+	
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+
+
+
+<script src={{ url_for('static',filename='assets/js/jquery.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/popper.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/bootstrap.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/jquery.mCustomScrollbar.concat.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/jquery.fancybox.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/appear.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/parallax.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/tilt.jquery.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/jquery.paroller.min.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/owl.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/wow.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/jquery-ui.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/script.js') }}></script>
+<script src={{ url_for('static',filename='assets/js/color-settings.js') }}></script>
+
+</body>
+</html>
