@@ -24,7 +24,7 @@ db = SQLAlchemy()
 app = Flask(__name__)
 # configure the SQLite database, relative to the app instance folder
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mwema:%s@localhost/god_in_a_box'% quote('Mwema-1234')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:%s@god-in-a-box.cswbf3wcvpbu.us-east-2.rds.amazonaws.com/god_in_a_box'% quote('Mwema-1234')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:%s@iaction.cswbf3wcvpbu.us-east-2.rds.amazonaws.com/iaction'% quote('actiondb')
 #secret key
 app.config['SECRET_KEY'] = "my long secret key veryy"
 app.secret_key = "mylongsecretkey"
@@ -89,7 +89,7 @@ with app.app_context():
     db.create_all()
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-GOOGLE_CLIENT_ID = "645914911327-epd4ka27bhcsbc219553244eh3bqqg2t.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = "730952487468-jpr0ltkbf8u4kr4bfcb4r4fmo02t9h22.apps.googleusercontent.com"
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 # flow = Flow.from_client_secrets_file(
 #     client_secrets_file=client_secrets_file,
@@ -99,7 +99,7 @@ client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="http://ec2-18-118-200-128.us-east-2.compute.amazonaws.com:5000/callback"
+    redirect_uri="https://gm3knpz8ew.us-east-2.awsapprunner.com:5000/callback"
 )
 
 def login_is_required(function):
@@ -222,7 +222,7 @@ def get_publishable_key():
 @app.route("/create-checkout-session")
 def create_checkout_session():
     # domain_url = "http://127.0.0.1:5000/"
-    domain_url = "http://ec2-18-118-200-128.us-east-2.compute.amazonaws.com:5000/"
+    domain_url = "https://gm3knpz8ew.us-east-2.awsapprunner.com:5000/"
     stripe.api_key = stripe_keys["secret_key"]
 
     try:
@@ -308,7 +308,7 @@ def reply():
     message = request.form.get('Body').lower()
     if message:
         app.logger.info("First hit")
-        openai.api_key = "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"
+        openai.api_key = os.getenv('OPENAI_API_KEY')
         # chat
         if message == "hello":
            r = openai.ChatCompletion.create(
@@ -398,7 +398,7 @@ def bot():
     if 'gpt' in incoming_msg:
         # return a quote
         app.logger.info("Test: GPT")
-        openai.api_key = "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"
+        openai.api_key = os.getenv('OPENAI_API_KEY')
         r = openai.Completion.create(
             model="text-davinci-003",
             prompt=incoming_msg,
