@@ -99,7 +99,7 @@ client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri="https://gm3knpz8ew.us-east-2.awsapprunner.com:5000/callback"
+    redirect_uri="http://ec2-18-118-200-128.us-east-2.compute.amazonaws.com:5000/callback"
 )
 
 def login_is_required(function):
@@ -222,7 +222,7 @@ def get_publishable_key():
 @app.route("/create-checkout-session")
 def create_checkout_session():
     # domain_url = "http://127.0.0.1:5000/"
-    domain_url = "https://gm3knpz8ew.us-east-2.awsapprunner.com:5000/"
+    domain_url = "http://ec2-18-118-200-128.us-east-2.compute.amazonaws.com:5000/"
     stripe.api_key = stripe_keys["secret_key"]
 
     try:
